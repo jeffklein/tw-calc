@@ -1,0 +1,10 @@
+# IntelliJ
+/.idea
+/*.iml
+# maven:
+/target
+# Atlassian plugin for IJ
+/atlassian-ide-plugin.xml
+# test artifacts
+/logs
+/tempWorkingDir
