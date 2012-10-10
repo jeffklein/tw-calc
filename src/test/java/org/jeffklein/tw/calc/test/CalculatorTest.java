@@ -27,26 +27,28 @@ public class CalculatorTest /*extends AbstractTestNGSpringContextTests*/ {
 
     private Player createPlayer() {
         Player player = new Player();
-        player.setMobCount(54700);
+        player.setMobCount(54900);
+        player.setAttackStat(11);
+        player.setDefenseStat(11);
         Inventory inventory = player.getInventory();
         inventory.setQuantityForType(InventoryItem.SHANK, 1);
         inventory.setQuantityForType(InventoryItem.SATURDAY_NIGHT_SPECIAL, 2);
-        inventory.setQuantityForType(InventoryItem.GARROTE, 425);
-        inventory.setQuantityForType(InventoryItem.RIOT_SHIELD, 655);
+        inventory.setQuantityForType(InventoryItem.GARROTE, 430);
+        inventory.setQuantityForType(InventoryItem.RIOT_SHIELD, 670);
         inventory.setQuantityForType(InventoryItem.KEVLAR_VEST, 500);
-        inventory.setQuantityForType(InventoryItem.BRASS_KNUCKLES, 685);
+        inventory.setQuantityForType(InventoryItem.BRASS_KNUCKLES, 690);
         inventory.setQuantityForType(InventoryItem.GERMAN_STILLETTO_KNIFE, 415);
-        inventory.setQuantityForType(InventoryItem.POTATO_MASHER, 340);
+        inventory.setQuantityForType(InventoryItem.POTATO_MASHER, 345);
         inventory.setQuantityForType(InventoryItem.SAWED_OFF_SHOTGUN, 510);
-        inventory.setQuantityForType(InventoryItem.GLOCK_31, 800);
-        inventory.setQuantityForType(InventoryItem.SLUGGER, 290);
-        inventory.setQuantityForType(InventoryItem.STEEL_TOED_SHOES, 53315);
-        inventory.setQuantityForType(InventoryItem.BODY_ARMOR, 54350);
-        inventory.setQuantityForType(InventoryItem.LUPARA, 265);
+        inventory.setQuantityForType(InventoryItem.GLOCK_31, 805);
+        inventory.setQuantityForType(InventoryItem.SLUGGER, 295);
+        inventory.setQuantityForType(InventoryItem.STEEL_TOED_SHOES, 53510);
+        inventory.setQuantityForType(InventoryItem.BODY_ARMOR, 54550);
+        inventory.setQuantityForType(InventoryItem.LUPARA, 275);
         inventory.setQuantityForType(InventoryItem.MACHETE, 320);
-        inventory.setQuantityForType(InventoryItem.TOMMY_GUN, 0);
+        inventory.setQuantityForType(InventoryItem.TOMMY_GUN, 20000);
         inventory.setQuantityForType(InventoryItem.CHAINSAW, 775);
-        inventory.setQuantityForType(InventoryItem.THREE_THIRTY_EIGHT_LAPUA_RIFLE, 53235);
+        inventory.setQuantityForType(InventoryItem.THREE_THIRTY_EIGHT_LAPUA_RIFLE, 53425);
         inventory.setQuantityForType(InventoryItem.KEVLAR_LINED_SUIT, 350);
         inventory.setQuantityForType(InventoryItem.AR15_ASSAULT_RIFLE, 445);
         inventory.setQuantityForType(InventoryItem.BERETTA_MODELO_38A, 180);
@@ -56,7 +58,7 @@ public class CalculatorTest /*extends AbstractTestNGSpringContextTests*/ {
     }
 
     @Test
-    public void testCalculateAttack() {
+    public void testCalcuateAttack() {
         Player player = createPlayer();
         Calculator calc = new Calculator();
         Map<InventoryItemClass, Map<InventoryItem, InventoryItemQuantities>> quantitiesByClass = calc.calculateInventoryItemUsageForAttack(player);
@@ -91,7 +93,7 @@ public class CalculatorTest /*extends AbstractTestNGSpringContextTests*/ {
             }
         }
         System.out.println("------------------------------------------------------------------------------------------");
-        System.out.format("%70s%10d%10d%n", "TOTAL:", totalAttack, totalUpkeep);
+        System.out.format("%70s%10d%10d%n", "TOTAL:", totalAttack+player.getAttackStat(), totalUpkeep);
     }
 
     @Test
@@ -130,6 +132,6 @@ public class CalculatorTest /*extends AbstractTestNGSpringContextTests*/ {
             }
         }
         System.out.println("------------------------------------------------------------------------------------------");
-        System.out.format("%70s%10d%10d%n", "TOTAL:", totalDefense, totalUpkeep);
+        System.out.format("%70s%10d%10d%n", "TOTAL:", totalDefense+player.getDefenseStat(), totalUpkeep);
     }
 }

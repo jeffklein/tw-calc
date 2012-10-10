@@ -26,6 +26,22 @@ public class Player {
         this.mobCount = mobCount;
     }
 
+    public Integer getAttackStat() {
+        return attackStat;
+    }
+
+    public void setAttackStat(Integer attackStat) {
+        this.attackStat = attackStat;
+    }
+
+    public Integer getDefenseStat() {
+        return defenseStat;
+    }
+
+    public void setDefenseStat(Integer defenseStat) {
+        this.defenseStat = defenseStat;
+    }
+
     public Inventory getInventory() {
         return inventory;
     }
