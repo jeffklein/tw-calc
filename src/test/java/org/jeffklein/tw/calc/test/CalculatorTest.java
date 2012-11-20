@@ -27,32 +27,31 @@ public class CalculatorTest /*extends AbstractTestNGSpringContextTests*/ {
 
     private Player createPlayer() {
         Player player = new Player();
-        player.setMobCount(54900);
+        player.setMobCount(56900);
         player.setAttackStat(11);
         player.setDefenseStat(11);
         Inventory inventory = player.getInventory();
         inventory.setQuantityForType(InventoryItem.SHANK, 1);
         inventory.setQuantityForType(InventoryItem.SATURDAY_NIGHT_SPECIAL, 2);
-        inventory.setQuantityForType(InventoryItem.GARROTE, 430);
-        inventory.setQuantityForType(InventoryItem.RIOT_SHIELD, 670);
-        inventory.setQuantityForType(InventoryItem.KEVLAR_VEST, 500);
-        inventory.setQuantityForType(InventoryItem.BRASS_KNUCKLES, 690);
-        inventory.setQuantityForType(InventoryItem.GERMAN_STILLETTO_KNIFE, 415);
-        inventory.setQuantityForType(InventoryItem.POTATO_MASHER, 345);
-        inventory.setQuantityForType(InventoryItem.SAWED_OFF_SHOTGUN, 510);
-        inventory.setQuantityForType(InventoryItem.GLOCK_31, 805);
-        inventory.setQuantityForType(InventoryItem.SLUGGER, 295);
-        inventory.setQuantityForType(InventoryItem.STEEL_TOED_SHOES, 53510);
-        inventory.setQuantityForType(InventoryItem.BODY_ARMOR, 54550);
-        inventory.setQuantityForType(InventoryItem.LUPARA, 275);
-        inventory.setQuantityForType(InventoryItem.MACHETE, 320);
-        inventory.setQuantityForType(InventoryItem.TOMMY_GUN, 20000);
-        inventory.setQuantityForType(InventoryItem.CHAINSAW, 775);
-        inventory.setQuantityForType(InventoryItem.THREE_THIRTY_EIGHT_LAPUA_RIFLE, 53425);
+        inventory.setQuantityForType(InventoryItem.GARROTE, 440);
+        inventory.setQuantityForType(InventoryItem.RIOT_SHIELD, 705);
+        inventory.setQuantityForType(InventoryItem.BRASS_KNUCKLES, 715);
+        inventory.setQuantityForType(InventoryItem.GERMAN_STILLETTO_KNIFE, 425);
+        inventory.setQuantityForType(InventoryItem.POTATO_MASHER, 365);
+        inventory.setQuantityForType(InventoryItem.SAWED_OFF_SHOTGUN, 515);
+        inventory.setQuantityForType(InventoryItem.GLOCK_31, 835);
+        inventory.setQuantityForType(InventoryItem.SLUGGER, 305);
+        inventory.setQuantityForType(InventoryItem.STEEL_TOED_SHOES, 55450);
+        inventory.setQuantityForType(InventoryItem.BODY_ARMOR, 56550);
+        inventory.setQuantityForType(InventoryItem.LUPARA, 310);
+        inventory.setQuantityForType(InventoryItem.MACHETE, 335);
+        inventory.setQuantityForType(InventoryItem.TOMMY_GUN, 0);
+        inventory.setQuantityForType(InventoryItem.CHAINSAW, 810);
+        inventory.setQuantityForType(InventoryItem.THREE_THIRTY_EIGHT_LAPUA_RIFLE, 55390);
         inventory.setQuantityForType(InventoryItem.KEVLAR_LINED_SUIT, 350);
-        inventory.setQuantityForType(InventoryItem.AR15_ASSAULT_RIFLE, 445);
+        inventory.setQuantityForType(InventoryItem.AR15_ASSAULT_RIFLE, 460);
         inventory.setQuantityForType(InventoryItem.BERETTA_MODELO_38A, 180);
-        inventory.setQuantityForType(InventoryItem.BAZOOKA, 250);
+        inventory.setQuantityForType(InventoryItem.BAZOOKA, 265);
         inventory.setQuantityForType(InventoryItem.BREN_GUN, 1020);
         return player;
     }
@@ -88,7 +87,7 @@ public class CalculatorTest /*extends AbstractTestNGSpringContextTests*/ {
                             item.getUpkeep() * quantities.getQuantityUsed()
                     );
                     totalAttack += (item.getAttack() * quantities.getQuantityUsed());
-                    totalUpkeep += (item.getUpkeep() * quantities.getQuantityUsed());
+                    totalUpkeep += (item.getUpkeep() * quantities.getQuantityOwned());
                 }
             }
         }
@@ -126,8 +125,8 @@ public class CalculatorTest /*extends AbstractTestNGSpringContextTests*/ {
                             item.getAttack() * quantities.getQuantityUsed(),
                             item.getUpkeep() * quantities.getQuantityUsed()
                     );
-                    totalUpkeep += (item.getUpkeep() * quantities.getQuantityUsed());
                     totalDefense += (item.getDefense() * quantities.getQuantityUsed());
+                    totalUpkeep += (item.getUpkeep() * quantities.getQuantityOwned());
                 }
             }
         }
