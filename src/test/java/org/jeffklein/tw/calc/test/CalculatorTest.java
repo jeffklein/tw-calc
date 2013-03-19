@@ -20,80 +20,37 @@ public class CalculatorTest /*extends AbstractTestNGSpringContextTests*/ {
 
     private static final Log log = LogFactory.getLog(CalculatorTest.class);
 
-//  @Autowired(required = true)
-//  @Qualifier("plApp1")
-//  private Inventory inventory = new Inventory();
-
-
     private Player createPlayer() {
         Player player = new Player();
-        player.setMobCount(57500);
+        player.setMobCount(63750);
         player.setAttackStat(11);
         player.setDefenseStat(11);
         Inventory inventory = player.getInventory();
         inventory.setQuantityForType(InventoryItem.SHANK, 1);
         inventory.setQuantityForType(InventoryItem.SATURDAY_NIGHT_SPECIAL, 2);
-        inventory.setQuantityForType(InventoryItem.GARROTE, 440);
-        inventory.setQuantityForType(InventoryItem.RIOT_SHIELD, 705);
-        inventory.setQuantityForType(InventoryItem.BRASS_KNUCKLES, 715);
-        inventory.setQuantityForType(InventoryItem.GERMAN_STILLETTO_KNIFE, 425);
-        inventory.setQuantityForType(InventoryItem.POTATO_MASHER, 370);
-        inventory.setQuantityForType(InventoryItem.SAWED_OFF_SHOTGUN, 515);
-        inventory.setQuantityForType(InventoryItem.GLOCK_31, 835);
-        inventory.setQuantityForType(InventoryItem.SLUGGER, 305);
-        inventory.setQuantityForType(InventoryItem.STEEL_TOED_SHOES, 56045);
-        inventory.setQuantityForType(InventoryItem.BODY_ARMOR, 57140);
-        inventory.setQuantityForType(InventoryItem.LUPARA, 325);
-        inventory.setQuantityForType(InventoryItem.MACHETE, 340);
-        inventory.setQuantityForType(InventoryItem.TOMMY_GUN, 0);
-        inventory.setQuantityForType(InventoryItem.CHAINSAW, 810);
-        inventory.setQuantityForType(InventoryItem.THREE_THIRTY_EIGHT_LAPUA_RIFLE, 55975);
-        inventory.setQuantityForType(InventoryItem.KEVLAR_LINED_SUIT, 360);
-        inventory.setQuantityForType(InventoryItem.AR15_ASSAULT_RIFLE, 460);
-        inventory.setQuantityForType(InventoryItem.BERETTA_MODELO_38A, 180);
-        inventory.setQuantityForType(InventoryItem.BAZOOKA, 265);
-        inventory.setQuantityForType(InventoryItem.BREN_GUN, 1020);
+        inventory.setQuantityForType(InventoryItem.GARROTE, 545);
+        inventory.setQuantityForType(InventoryItem.RIOT_SHIELD, 790);
+        inventory.setQuantityForType(InventoryItem.BRASS_KNUCKLES, 825);
+        inventory.setQuantityForType(InventoryItem.GERMAN_STILLETTO_KNIFE, 610);
+        inventory.setQuantityForType(InventoryItem.POTATO_MASHER, 445);
+        inventory.setQuantityForType(InventoryItem.SAWED_OFF_SHOTGUN, 700);
+        inventory.setQuantityForType(InventoryItem.GLOCK_31, 910);
+        inventory.setQuantityForType(InventoryItem.SLUGGER, 610);
+        inventory.setQuantityForType(InventoryItem.STEEL_TOED_SHOES, 61765);
+        inventory.setQuantityForType(InventoryItem.BODY_ARMOR, 63140);
+        inventory.setQuantityForType(InventoryItem.LUPARA, 380);
+        inventory.setQuantityForType(InventoryItem.MACHETE, 495);
+        inventory.setQuantityForType(InventoryItem.TOMMY_GUN, 56545);
+        inventory.setQuantityForType(InventoryItem.CHAINSAW, 880);
+        inventory.setQuantityForType(InventoryItem.THREE_THIRTY_EIGHT_LAPUA_RIFLE, 57210);
+        inventory.setQuantityForType(InventoryItem.KEVLAR_LINED_SUIT, 610);
+        inventory.setQuantityForType(InventoryItem.AR15_ASSAULT_RIFLE, 640);
+        inventory.setQuantityForType(InventoryItem.BERETTA_MODELO_38A, 350);
+        inventory.setQuantityForType(InventoryItem.BAZOOKA, 405);
+        inventory.setQuantityForType(InventoryItem.BREN_GUN, 5810);
         return player;
     }
 
-    @Test
-    public void testCalcuateAttack() {
-        Player player = createPlayer();
-        Calculator calc = new Calculator();
-        Map<InventoryItemClass, Map<InventoryItem, InventoryItemQuantities>> quantitiesByClass = calc.calculateInventoryItemUsageForAttack(player);
-        System.out.format("%-10s%-30s%10s%10s%10s%10s%10s%n",
-                "CLASS",
-                "ITEM",
-                "OWNED",
-                "USED",
-                "UNUSED",
-                "ATTACK",
-                "UPKEEP");
-        System.out.println("------------------------------------------------------------------------------------------");
-        int totalAttack = 0;
-        int totalUpkeep = 0;
-        for (InventoryItemClass itemClass : InventoryItemClass.values()) {
-            Map<InventoryItem, InventoryItemQuantities> quantitiesByType = quantitiesByClass.get(itemClass);
-            for (InventoryItem item : itemClass.getInventoryItemsInClassSortedByAttack()) {
-                InventoryItemQuantities quantities = quantitiesByType.get(item);
-                if (quantities.getQuantityOwned() > 0) {
-                    System.out.format("%-10s%-30s%10d%10d%10d%10d%10d%n",
-                            itemClass,
-                            item.name(),
-                            quantities.getQuantityOwned(),
-                            quantities.getQuantityUsed(),
-                            quantities.getQuantityUnused(),
-                            item.getAttack() * quantities.getQuantityUsed(),
-                            item.getUpkeep() * quantities.getQuantityUsed()
-                    );
-                    totalAttack += (item.getAttack() * quantities.getQuantityUsed());
-                    totalUpkeep += (item.getUpkeep() * quantities.getQuantityOwned());
-                }
-            }
-        }
-        System.out.println("------------------------------------------------------------------------------------------");
-        System.out.format("%70s%10d%10d%n", "TOTAL:", totalAttack+player.getAttackStat(), totalUpkeep);
-    }
 
     @Test
     public void testCalculateDefense() {
@@ -132,5 +89,45 @@ public class CalculatorTest /*extends AbstractTestNGSpringContextTests*/ {
         }
         System.out.println("------------------------------------------------------------------------------------------");
         System.out.format("%70s%10d%10d%n", "TOTAL:", totalDefense+player.getDefenseStat(), totalUpkeep);
+    }
+
+
+    @Test
+    public void testCalculateAttack() {
+        Player player = createPlayer();
+        Calculator calc = new Calculator();
+        Map<InventoryItemClass, Map<InventoryItem, InventoryItemQuantities>> quantitiesByClass = calc.calculateInventoryItemUsageForAttack(player);
+        System.out.format("%-10s%-30s%10s%10s%10s%10s%10s%n",
+                "CLASS",
+                "ITEM",
+                "OWNED",
+                "USED",
+                "UNUSED",
+                "ATTACK",
+                "UPKEEP");
+        System.out.println("------------------------------------------------------------------------------------------");
+        int totalAttack = 0;
+        int totalUpkeep = 0;
+        for (InventoryItemClass itemClass : InventoryItemClass.values()) {
+            Map<InventoryItem, InventoryItemQuantities> quantitiesByType = quantitiesByClass.get(itemClass);
+            for (InventoryItem item : itemClass.getInventoryItemsInClassSortedByAttack()) {
+                InventoryItemQuantities quantities = quantitiesByType.get(item);
+                if (quantities.getQuantityOwned() > 0) {
+                    System.out.format("%-10s%-30s%10d%10d%10d%10d%10d%n",
+                            itemClass,
+                            item.name(),
+                            quantities.getQuantityOwned(),
+                            quantities.getQuantityUsed(),
+                            quantities.getQuantityUnused(),
+                            item.getAttack() * quantities.getQuantityUsed(),
+                            item.getUpkeep() * quantities.getQuantityUsed()
+                    );
+                    totalAttack += (item.getAttack() * quantities.getQuantityUsed());
+                    totalUpkeep += (item.getUpkeep() * quantities.getQuantityOwned());
+                }
+            }
+        }
+        System.out.println("------------------------------------------------------------------------------------------");
+        System.out.format("%70s%10d%10d%n", "TOTAL:", totalAttack+player.getAttackStat(), totalUpkeep);
     }
 }
