@@ -16,7 +16,7 @@ public enum InventoryItem {
     MOLOTOV_COCKTAIL(InventoryItemClass.WEAPON, 7, 3, 4000, 0, false),
     GALESI_MODEL_503(InventoryItemClass.WEAPON, 8, 9, 6500, 0, false),
     KEVLAR_VEST(InventoryItemClass.ARMOR, 1, 4, 8000, 0, false),
-    BRASS_KNUCKLES(InventoryItemClass.WEAPON, 3, 2, 4000, 0, true),
+    BRASS_KNUCKLES(InventoryItemClass.MELEE, 3, 2, 4000, 0, true),
     FIFTY_SEVEN_MAGNUM(InventoryItemClass.WEAPON, 5, 3, 10000, 0, false),
     MEAT_CLEAVER(InventoryItemClass.MELEE, 2, 1, 2000, 0, false),
     GRENADE(InventoryItemClass.WEAPON, 10, 8, 10000, 0, false),
