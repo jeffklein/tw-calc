@@ -22,14 +22,14 @@ public class CalculatorTest /*extends AbstractTestNGSpringContextTests*/ {
 
     private Player createPlayer() {
         Player player = new Player();
-        player.setMobCount(76000);
+        player.setMobCount(76500);
         player.setAttackStat(76);
         player.setDefenseStat(11);
         Inventory inventory = player.getInventory();
 //        inventory.setQuantityForType(InventoryItem.SHANK, 1);
 //        inventory.setQuantityForType(InventoryItem.SATURDAY_NIGHT_SPECIAL, 2);
 //        inventory.setQuantityForType(InventoryItem.GARROTE, 775);
-        inventory.setQuantityForType(InventoryItem.RIOT_SHIELD, 1000);
+        inventory.setQuantityForType(InventoryItem.RIOT_SHIELD, 1030);
 //        inventory.setQuantityForType(InventoryItem.MOLOTOV_COCKTAIL, 5);
 //        inventory.setQuantityForType(InventoryItem.BRASS_KNUCKLES, 1075);
 //        inventory.setQuantityForType(InventoryItem.FIFTY_SEVEN_MAGNUM, 4);
@@ -39,16 +39,16 @@ public class CalculatorTest /*extends AbstractTestNGSpringContextTests*/ {
 //        inventory.setQuantityForType(InventoryItem.SAWED_OFF_SHOTGUN, 1100);
 //        inventory.setQuantityForType(InventoryItem.GLOCK_31, 1160);
         inventory.setQuantityForType(InventoryItem.SLUGGER, 1160);
-        inventory.setQuantityForType(InventoryItem.STEEL_TOED_SHOES, 72755);
-        inventory.setQuantityForType(InventoryItem.BODY_ARMOR, 74890);
-        inventory.setQuantityForType(InventoryItem.LUPARA, 615);
-        inventory.setQuantityForType(InventoryItem.MACHETE, 960);
-        inventory.setQuantityForType(InventoryItem.TOMMY_GUN, 58640);
-        inventory.setQuantityForType(InventoryItem.CHAINSAW, 1125);
-        inventory.setQuantityForType(InventoryItem.THREE_THIRTY_EIGHT_LAPUA_RIFLE, 60110);
-        inventory.setQuantityForType(InventoryItem.KEVLAR_LINED_SUIT, 1110);
-        inventory.setQuantityForType(InventoryItem.AR15_ASSAULT_RIFLE, 1170);
-        inventory.setQuantityForType(InventoryItem.BERETTA_MODELO_38A, 715);
+        inventory.setQuantityForType(InventoryItem.STEEL_TOED_SHOES, 73225);
+        inventory.setQuantityForType(InventoryItem.BODY_ARMOR, 75380);
+        inventory.setQuantityForType(InventoryItem.LUPARA, 640);
+        inventory.setQuantityForType(InventoryItem.MACHETE, 965);
+        inventory.setQuantityForType(InventoryItem.TOMMY_GUN, 59125);
+        inventory.setQuantityForType(InventoryItem.CHAINSAW, 1150);
+        inventory.setQuantityForType(InventoryItem.THREE_THIRTY_EIGHT_LAPUA_RIFLE, 60580);
+        inventory.setQuantityForType(InventoryItem.KEVLAR_LINED_SUIT, 1120);
+        inventory.setQuantityForType(InventoryItem.AR15_ASSAULT_RIFLE, 1180);
+        inventory.setQuantityForType(InventoryItem.BERETTA_MODELO_38A, 720);
         inventory.setQuantityForType(InventoryItem.BAZOOKA, 915);
         inventory.setQuantityForType(InventoryItem.BREN_GUN, 14560);
         return player;
