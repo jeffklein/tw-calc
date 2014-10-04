@@ -37,21 +37,21 @@ public class CalculatorTest /*extends AbstractTestNGSpringContextTests*/ {
         inventory.setQuantityForType(InventoryItem.AK47, 3);
         inventory.setQuantityForType(InventoryItem.GERMAN_STILLETTO_KNIFE, 1115);
         inventory.setQuantityForType(InventoryItem.POTATO_MASHER, 805);
-        inventory.setQuantityForType(InventoryItem.SAWED_OFF_SHOTGUN, 1160);
+        inventory.setQuantityForType(InventoryItem.SAWED_OFF_SHOTGUN, 1210);
         inventory.setQuantityForType(InventoryItem.GLOCK_31, 1285);
-        inventory.setQuantityForType(InventoryItem.SLUGGER, 1255);
-        inventory.setQuantityForType(InventoryItem.STEEL_TOED_SHOES, 78680);
+        inventory.setQuantityForType(InventoryItem.SLUGGER, 1280);
+        inventory.setQuantityForType(InventoryItem.STEEL_TOED_SHOES, 78630);
         inventory.setQuantityForType(InventoryItem.BODY_ARMOR, 81005);
         inventory.setQuantityForType(InventoryItem.LUPARA, 770);
-        inventory.setQuantityForType(InventoryItem.MACHETE, 1055);
-        inventory.setQuantityForType(InventoryItem.TOMMY_GUN, 62310);
+        inventory.setQuantityForType(InventoryItem.MACHETE, 1080);
+        inventory.setQuantityForType(InventoryItem.TOMMY_GUN, 61060);
         inventory.setQuantityForType(InventoryItem.CHAINSAW, 1210);
-        inventory.setQuantityForType(InventoryItem.THREE_THIRTY_EIGHT_LAPUA_RIFLE, 63985);
+        inventory.setQuantityForType(InventoryItem.THREE_THIRTY_EIGHT_LAPUA_RIFLE, 62910);
         inventory.setQuantityForType(InventoryItem.KEVLAR_LINED_SUIT, 1195);
-        inventory.setQuantityForType(InventoryItem.AR15_ASSAULT_RIFLE, 1375);
-        inventory.setQuantityForType(InventoryItem.BERETTA_MODELO_38A, 850);
-        inventory.setQuantityForType(InventoryItem.BAZOOKA, 1070);
-        inventory.setQuantityForType(InventoryItem.BREN_GUN, 16595);
+        inventory.setQuantityForType(InventoryItem.AR15_ASSAULT_RIFLE, 1475);
+        inventory.setQuantityForType(InventoryItem.BERETTA_MODELO_38A, 900);
+        inventory.setQuantityForType(InventoryItem.BAZOOKA, 1145);
+        inventory.setQuantityForType(InventoryItem.BREN_GUN, 17620);
         return player;
     }
 
