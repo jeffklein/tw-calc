@@ -24,7 +24,7 @@ public class CalculatorTest /*extends AbstractTestNGSpringContextTests*/ {
         Player player = new Player();
         player.setMobCount(92300);
         player.setAttackStat(0);
-        player.setDefenseStat(25);
+        player.setDefenseStat(0);
         Inventory inventory = player.getInventory();
         inventory.setQuantityForType(InventoryItem.SHANK, 1);
         inventory.setQuantityForType(InventoryItem.SATURDAY_NIGHT_SPECIAL, 2);
